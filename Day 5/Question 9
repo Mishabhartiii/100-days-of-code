@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h> // Required for the pow() function
+
+int main() {
+    double principal, rate, time;
+    double simple_interest, compound_interest;
+
+    // 1. Get inputs from the user
+    printf("Enter the principal amount: ");
+    scanf("%lf", &principal);
+
+    printf("Enter the annual interest rate (%%): ");
+    scanf("%lf", &rate);
+
+    printf("Enter the time period in years: ");
+    scanf("%lf", &time);
+
+    // 2. Calculate Simple Interest
+    simple_interest = (principal * rate * time) / 100;
+
+    // 3. Calculate Compound Interest (Compounded Annually)
+    // Formula: P * (1 + R/100)^T - P
+    compound_interest = principal * pow((1 + rate / 100), time) - principal;
+
+    // 4. Display the results
+    printf("\n--- Results ---\n");
+    printf("Simple Interest: %.2lf\n", simple_interest);
+    printf("Compound Interest: %.2lf\n", compound_interest);
+
+    return 0;
+}
