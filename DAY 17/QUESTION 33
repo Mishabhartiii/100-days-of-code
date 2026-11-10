@@ -1,0 +1,58 @@
+//Write a program to check if a number is an Armstrong number
+
+#include <stdio.h>
+
+int main()
+{
+    int n, original, rem, sum = 0;
+    int digits = 0, temp, i;
+    int power;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if(n < 0)
+    {
+        printf("Negative number is not an Armstrong number");
+        return 0;
+    }
+
+    original = n;
+    temp = n;
+
+    // Count the number of digits
+    do
+    {
+        digits++;
+        temp = temp / 10;
+    }
+    while(temp > 0);
+
+    temp = n;
+
+    // Calculate the sum of powered digits
+    while(temp > 0)
+    {
+        rem = temp % 10;
+        power = 1;
+
+        for(i = 1; i <= digits; i++)
+        {
+            power = power * rem;
+        }
+
+        sum = sum + power;
+        temp = temp / 10;
+    }
+
+    if(sum == original)
+    {
+        printf("%d is an Armstrong Number", original);
+    }
+    else
+    {
+        printf("%d is Not an Armstrong Number", original);
+    }
+
+    return 0;
+}
