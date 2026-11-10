@@ -1,0 +1,37 @@
+//Write a program to check if a number is a palindrome.
+
+#include <stdio.h>
+
+int main()
+{
+    int n, original, rem, rev = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if(n < 0)
+    {
+        printf("Negative numbers are not palindrome");
+        return 0;
+    }
+
+    original = n;
+
+    while(n > 0)
+    {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        n = n / 10;
+    }
+
+    if(original == rev)
+    {
+        printf("%d is a Palindrome Number", original);
+    }
+    else
+    {
+        printf("%d is Not a Palindrome Number", original);
+    }
+
+    return 0;
+}
