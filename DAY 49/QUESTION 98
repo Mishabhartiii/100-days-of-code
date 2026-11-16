@@ -1,0 +1,40 @@
+
+//Print initials of a name with the surname displayed in full
+#include <stdio.h>
+
+int main()
+{
+    char str[100];
+    int i, lastSpace = -1;
+
+    printf("Enter your full name: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Find the last space
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(str[i] == ' ')
+        {
+            lastSpace = i;
+        }
+    }
+
+    printf("Modified name: ");
+
+    // Print initials of first and middle names
+    for(i = 0; i < lastSpace; i++)
+    {
+        if(str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+        {
+            printf("%c. ", str[i]);
+        }
+    }
+
+    // Print full surname
+    for(i = lastSpace + 1; str[i] != '\0' && str[i] != '\n'; i++)
+    {
+        printf("%c", str[i]);
+    }
+
+    return 0;
+}
